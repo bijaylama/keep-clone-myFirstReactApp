@@ -37,6 +37,7 @@ export default function FormNote({ onAdd }) {
             <Paper elevation={3}>
               <form noValidate autoComplete="off">
                 <TextField
+                  sx={{ m: 2 }}
                   name="title"
                   value={note.title}
                   label="Title"

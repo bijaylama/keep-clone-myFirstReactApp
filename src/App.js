@@ -3,6 +3,7 @@ import "./App.css";
 import FormNote from "./components/FormNote";
 import { useState } from "react";
 import NoteList from "./components/NoteList";
+import NavNote from "./components/NavNote";
 
 function App() {
   const [notes, setNotes] = useState([]);
@@ -16,6 +17,8 @@ function App() {
 
   return (
     <>
+      {/* menu app bar */}
+      <NavNote />
       <FormNote onAdd={addNote} />
       {/* iterate array of notes */}
       {notes.map((note, index) => {
