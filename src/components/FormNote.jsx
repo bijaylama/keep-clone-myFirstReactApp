@@ -28,6 +28,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 }));
 
 export default function FormNote({ onAdd }) {
+  const [expand, setExpand] = useState(false);
   const [note, setNote] = useState({
     title: "",
     content: "",
@@ -45,6 +46,14 @@ export default function FormNote({ onAdd }) {
   const handleButton = (e) => {
     e.preventDefault();
     onAdd(note);
+    setNote({
+      title: "",
+      content: "",
+    });
+    setExpand(false);
+  };
+  const onExpand = () => {
+    setExpand(true);
   };
   return (
     <>
@@ -53,19 +62,20 @@ export default function FormNote({ onAdd }) {
           <Grid item md={3}></Grid>
           <Grid item md={6}>
             <Paper elevation={5} sx={{ position: "relative" }}>
-              <form noValidate autoComplete="off">
-                {/* INPUT TITLE FORM */}
-                <Box>
-                  <StyledInputBase
-                    placeholder="Title"
-                    fullWidth
-                    name="title"
-                    value={note.title}
-                    onChange={handleChange}
-                  />
-                </Box>
-                <Box>
-                  {/* INPUT CONTENT FORM */}
+              {/* INPUT TITLE FORM */}
+              <Box>
+                <StyledInputBase
+                  placeholder="Title"
+                  fullWidth
+                  name="title"
+                  value={note.title}
+                  onChange={handleChange}
+                  onClick={onExpand}
+                />
+              </Box>
+              {/* INPUT CONTENT FORM */}
+              <Box>
+                {expand ? (
                   <StyledInputBase
                     placeholder="Take a note..."
                     fullWidth
@@ -75,15 +85,22 @@ export default function FormNote({ onAdd }) {
                     value={note.content}
                     onChange={handleChange}
                   />
-                </Box>
-              </form>
-              {/* SAVE BUTTON */}
+                ) : null}
+              </Box>
+              {/* BUTTON FIELD */}
               <Box
                 sx={{ position: "absolute", right: 0, bottom: 0, marginTop: 8 }}
               >
-                <Fab color="primary" aria-label="add" onClick={handleButton}>
-                  <AddIcon />
-                </Fab>
+                {expand ? (
+                  <Fab
+                    color="extended"
+                    size="medium"
+                    aria-label="add"
+                    onClick={handleButton}
+                  >
+                    <AddIcon />
+                  </Fab>
+                ) : null}
               </Box>
             </Paper>
           </Grid>
