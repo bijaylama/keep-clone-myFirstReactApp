@@ -21,7 +21,8 @@ function App() {
       <NavNote />
       <FormNote onAdd={addNote} />
       {/* iterate array of notes */}
-      {notes.map((note, index) => {
+
+      {/* {notes.map((note, index) => {
         return (
           <NoteList
             key={index}
@@ -30,7 +31,9 @@ function App() {
             content={note.content}
           />
         );
-      })}
+      })} */}
+
+      <NoteList noteArray={notes} />
     </>
   );
 }

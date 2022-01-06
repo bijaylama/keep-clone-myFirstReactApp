@@ -2,16 +2,7 @@ import Box from "@mui/material/Box";
 import { styled } from "@mui/material/styles";
 import AddIcon from "@mui/icons-material/Add";
 
-import {
-  Button,
-  Container,
-  Fab,
-  Grid,
-  InputBase,
-  makeStyles,
-  Paper,
-  TextField,
-} from "@mui/material";
+import { Fab, Grid, InputBase, Paper } from "@mui/material";
 import { useState } from "react";
 
 // sample
@@ -64,28 +55,33 @@ export default function FormNote({ onAdd }) {
             <Paper elevation={5} sx={{ position: "relative" }}>
               {/* INPUT TITLE FORM */}
               <Box>
-                <StyledInputBase
-                  placeholder="Title"
-                  fullWidth
-                  name="title"
-                  value={note.title}
-                  onChange={handleChange}
-                  onClick={onExpand}
-                />
-              </Box>
-              {/* INPUT CONTENT FORM */}
-              <Box>
                 {expand ? (
                   <StyledInputBase
-                    placeholder="Take a note..."
+                    sx={{
+                      fontFamily: "'Open Sans', sans-serif",
+                      fontWeight: 500,
+                      fontSize: "1.225rem",
+                    }}
+                    placeholder="Title"
                     fullWidth
-                    multiline="true"
-                    maxRows={6}
-                    name="content"
-                    value={note.content}
+                    name="title"
+                    value={note.title}
                     onChange={handleChange}
                   />
                 ) : null}
+              </Box>
+              {/* INPUT CONTENT FORM */}
+              <Box>
+                <StyledInputBase
+                  placeholder="Take a note..."
+                  fullWidth
+                  multiline="true"
+                  maxRows={6}
+                  name="content"
+                  value={note.content}
+                  onChange={handleChange}
+                  onClick={onExpand}
+                />
               </Box>
               {/* BUTTON FIELD */}
               <Box
