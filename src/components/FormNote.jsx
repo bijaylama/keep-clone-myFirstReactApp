@@ -36,11 +36,13 @@ export default function FormNote({ onAdd }) {
   };
   const handleButton = (e) => {
     e.preventDefault();
-    onAdd(note);
-    setNote({
-      title: "",
-      content: "",
-    });
+    if (note.title !== "" || note.content !== "") {
+      onAdd(note);
+      setNote({
+        title: "",
+        content: "",
+      });
+    }
     setExpand(false);
   };
   const onExpand = () => {
@@ -75,7 +77,7 @@ export default function FormNote({ onAdd }) {
                 <StyledInputBase
                   placeholder="Take a note..."
                   fullWidth
-                  multiline="true"
+                  multiline
                   maxRows={6}
                   name="content"
                   value={note.content}

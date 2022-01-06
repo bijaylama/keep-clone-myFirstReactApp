@@ -11,19 +11,21 @@ import {
   CardContent,
   Grid,
   IconButton,
+  styled,
   Typography,
 } from "@mui/material";
+
+const cardButtomWrapper = styled("div")({});
 
 export default function NoteList({ noteArray }) {
   return (
     <>
       <Box>
         <Container maxWidth="lg">
-          {/* <Grid item xs={1}></Grid>
-          <Grid item xs={10}> */}
           <Masonry columns={4} spacing={2}>
             {noteArray.map((note, index) => (
               <Card
+                key={index}
                 variant="outlined"
                 sx={{ "&:hover": { boxShadow: "0px 0px 8px #e0e0e0" } }}
               >
