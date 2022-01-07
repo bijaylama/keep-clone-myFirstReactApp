@@ -1,9 +1,11 @@
 import Box from "@mui/material/Box";
 import { styled } from "@mui/material/styles";
-import AddIcon from "@mui/icons-material/Add";
+import { formStyle } from "./style";
 
-import { Fab, Grid, InputBase, Paper } from "@mui/material";
+import { Fab, Grid, IconButton, InputBase, Paper } from "@mui/material";
 import { useState } from "react";
+import InputField from "../common/InputField/InputField";
+import SendIcon from "@mui/icons-material/Send";
 
 // sample
 const StyledInputBase = styled(InputBase)(({ theme }) => ({
@@ -25,8 +27,9 @@ export default function FormNote({ onAdd }) {
     content: "",
   });
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
+  const handleChange = ({ name, value }) => {
+    console.log(value);
+
     setNote((preValue) => {
       return {
         ...preValue,
@@ -45,7 +48,7 @@ export default function FormNote({ onAdd }) {
     }
     setExpand(false);
   };
-  const onExpand = () => {
+  const handleExpand = () => {
     setExpand(true);
   };
   return (
@@ -54,55 +57,46 @@ export default function FormNote({ onAdd }) {
         <Grid container>
           <Grid item md={3}></Grid>
           <Grid item md={6}>
-            <Paper elevation={5} sx={{ position: "relative" }}>
+            <Paper elevation={5} sx={formStyle.paperWrapeStyle}>
               {/* INPUT TITLE FORM */}
               <Box>
                 {expand ? (
-                  <StyledInputBase
-                    sx={{
-                      fontFamily: "'Open Sans', sans-serif",
-                      fontWeight: 500,
-                      fontSize: "1.225rem",
-                    }}
-                    placeholder="Title"
-                    fullWidth
+                  <InputField
+                    sx={formStyle.inputTitleStyle}
                     name="title"
                     value={note.title}
-                    onChange={handleChange}
+                    onChange={(e) => handleChange(e.target)}
+                    fontWeight="600"
+                    title="Title"
                   />
                 ) : null}
-              </Box>
-              {/* INPUT CONTENT FORM */}
-              <Box>
-                <StyledInputBase
-                  placeholder="Take a note..."
-                  fullWidth
-                  multiline
-                  maxRows={6}
+                {/* INPUT CONTENT FIELD */}
+                <InputField
+                  sx={formStyle.inputContentStyle}
+                  onChange={(e) => handleChange(e.target)}
                   name="content"
                   value={note.content}
-                  onChange={handleChange}
-                  onClick={onExpand}
+                  onClick={handleExpand}
+                  fontWeight="400"
+                  multiline
+                  maxRows={6}
+                  title="Take a note..."
                 />
-              </Box>
-              {/* BUTTON FIELD */}
-              <Box
-                sx={{ position: "absolute", right: 0, bottom: 0, marginTop: 8 }}
-              >
-                {expand ? (
-                  <Fab
-                    color="extended"
-                    size="medium"
-                    aria-label="add"
-                    onClick={handleButton}
-                  >
-                    <AddIcon />
-                  </Fab>
-                ) : null}
+                <Box sx={formStyle.iconButtonStyle}>
+                  {/* FORM BUTTON */}
+                  {expand ? (
+                    <IconButton
+                      onClick={handleButton}
+                      color="primary"
+                      aria-label="send"
+                    >
+                      <SendIcon />
+                    </IconButton>
+                  ) : null}
+                </Box>
               </Box>
             </Paper>
           </Grid>
-          <Grid item md={3}></Grid>
         </Grid>
       </Box>
     </>

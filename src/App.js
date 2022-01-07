@@ -1,9 +1,9 @@
 import logo from "./logo.svg";
 import "./App.css";
-import FormNote from "./components/FormNote";
+import FormNote from "./components/FormNote/FormNote";
 import { useState } from "react";
-import NoteList from "./components/NoteList";
-import NavNote from "./components/NavNote";
+import NoteList from "./components/NoteList/NoteList";
+import NavNote from "./components/NavNote/NavNote";
 
 function App() {
   const [notes, setNotes] = useState([]);
@@ -20,18 +20,6 @@ function App() {
       {/* menu app bar */}
       <NavNote />
       <FormNote onAdd={addNote} />
-      {/* iterate array of notes */}
-
-      {/* {notes.map((note, index) => {
-        return (
-          <NoteList
-            key={index}
-            id={index}
-            title={note.title}
-            content={note.content}
-          />
-        );
-      })} */}
 
       <NoteList noteArray={notes} />
     </>
