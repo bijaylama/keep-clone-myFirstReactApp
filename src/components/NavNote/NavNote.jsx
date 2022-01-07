@@ -15,7 +15,7 @@ import { navStyle } from "./style";
 export default function () {
   return (
     <Box sx={navStyle.container}>
-      <AppBar sx={navStyle.appStyle} position="static">
+      <AppBar color="yellow" position="static">
         <Toolbar>
           <EventNoteIcon sx={{ mr: 2 }} />
 
@@ -31,9 +31,9 @@ export default function () {
           >
             Keep
           </Typography>
-          <Box sx={{ flexGrow: 1 }} />
+          <Box sx={{ flexGrow: 1, backgroundColor: "red" }} />
           {/* SEARCH COMPONENT */}
-          <SearchBar />
+          <SearchBar sx={{ flexGrow: 3 }} />
           <Box sx={{ flexGrow: 1 }} />
           <Box sx={{ display: { xs: "none", md: "flex" } }}>
             <IconButton size="large" color="inherit">

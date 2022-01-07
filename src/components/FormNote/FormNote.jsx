@@ -87,7 +87,7 @@ export default function FormNote({ onAdd }) {
                   {expand ? (
                     <IconButton
                       onClick={handleButton}
-                      color="primary"
+                      color="yellow"
                       aria-label="send"
                     >
                       <SendIcon />

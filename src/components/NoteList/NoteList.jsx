@@ -14,6 +14,7 @@ import {
   styled,
   Typography,
 } from "@mui/material";
+import { myStyle } from "./style";
 
 const cardButtomWrapper = styled("div")({});
 
@@ -24,31 +25,16 @@ export default function NoteList({ noteArray }) {
         <Container maxWidth="lg">
           <Masonry columns={4} spacing={2}>
             {noteArray.map((note, index) => (
-              <Card
-                key={index}
-                variant="outlined"
-                sx={{ "&:hover": { boxShadow: "0px 0px 8px #e0e0e0" } }}
-              >
+              <Card key={index} variant="outlined" sx={myStyle.cardStyle}>
                 <CardContent>
                   <Typography
                     variant="h5"
                     component="div"
-                    sx={{ fontFamily: "'Open Sans', sans-serif" }}
+                    sx={myStyle.contentTitleStyle}
                   >
                     {note.title}
                   </Typography>
-                  <Typography
-                    variant="body2"
-                    sx={{
-                      letterSpacing: ".00625em",
-                      fontSize: "1.125rem",
-                      lineHeight: "1.5rem",
-                      fontFamily: "'Open Sans', sans-serif",
-                      marginTop: 2,
-                      fontWeight: 200,
-                      lineHeight: 1.5,
-                    }}
-                  >
+                  <Typography variant="body2" sx={myStyle.contentBodyStyle}>
                     {note.content}
                   </Typography>
                 </CardContent>
@@ -57,12 +43,12 @@ export default function NoteList({ noteArray }) {
                   <Grid item xs={3.5}></Grid>
                   <Grid item xs={5} sx={{ display: "flex" }}>
                     <Grid item xs={6}>
-                      <IconButton aria-label="add to favorites">
+                      <IconButton color="yellow" aria-label="add to favorites">
                         <EditIcon />
                       </IconButton>
                     </Grid>
                     <Grid item xs={6}>
-                      <IconButton aria-label="share">
+                      <IconButton color="yellow" aria-label="share">
                         <DeleteForeverIcon />
                       </IconButton>
                     </Grid>
