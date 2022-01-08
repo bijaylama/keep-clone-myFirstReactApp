@@ -17,13 +17,18 @@ function App() {
     console.log(newNote);
   };
 
+  const handleDelete = (id) => {
+    const newNote = notes.filter((val, index) => index !== id);
+    setNotes(newNote);
+  };
+
   return (
     <ThemeProvider theme={myTheme}>
       {/* menu app bar */}
       <NavNote />
       <FormNote onAdd={addNote} />
 
-      <NoteList noteArray={notes} />
+      <NoteList noteArray={notes} handleDelete={handleDelete} />
     </ThemeProvider>
   );
 }
