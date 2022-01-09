@@ -20,37 +20,22 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
   },
 }));
 
-export default function FormNote({ onAdd }) {
-  const [expand, setExpand] = useState(false);
-  const [note, setNote] = useState({
-    title: "",
-    content: "",
-  });
+export default function FormNote({
+  expand,
+  setExpand,
+  input,
+  setInput,
+  onAdd,
+  handleButton,
+  handleExpand,
+  handleChange,
+}) {
+  // const [expand, setExpand] = useState(false);
+  // const [input, setInput] = useState({
+  //   title: "",
+  //   content: "",
+  // });
 
-  const handleChange = ({ name, value }) => {
-    console.log(value);
-
-    setNote((preValue) => {
-      return {
-        ...preValue,
-        [name]: value,
-      };
-    });
-  };
-  const handleButton = (e) => {
-    e.preventDefault();
-    if (note.title !== "" || note.content !== "") {
-      onAdd(note);
-      setNote({
-        title: "",
-        content: "",
-      });
-    }
-    setExpand(false);
-  };
-  const handleExpand = () => {
-    setExpand(true);
-  };
   return (
     <>
       <Box sx={{ p: 10 }}>
@@ -64,7 +49,6 @@ export default function FormNote({ onAdd }) {
                   <InputField
                     sx={formStyle.inputTitleStyle}
                     name="title"
-                    value={note.title}
                     onChange={(e) => handleChange(e.target)}
                     fontWeight="600"
                     title="Title"
@@ -75,7 +59,6 @@ export default function FormNote({ onAdd }) {
                   sx={formStyle.inputContentStyle}
                   onChange={(e) => handleChange(e.target)}
                   name="content"
-                  value={note.content}
                   onClick={handleExpand}
                   fontWeight="400"
                   multiline

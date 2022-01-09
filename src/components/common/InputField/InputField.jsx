@@ -8,12 +8,13 @@ const InputField = ({
   multiline,
   maxRows,
   name,
+  defaultValue,
   value,
 }) => {
   return (
     <Input
       name={name}
-      value={value}
+      defaultValue={defaultValue}
       multiline={multiline}
       maxRows={maxRows}
       sx={sx}
@@ -22,6 +23,7 @@ const InputField = ({
       onClick={onClick}
       fullWidth
       disableUnderline
+      value={value}
     />
   );
 };

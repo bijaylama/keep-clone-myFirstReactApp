@@ -1,5 +1,5 @@
 export const myStyle = {
-  cardStyle: { "&:hover": { boxShadow: "0px 0px 8px #e0e0e0" } },
+  cardStyle: { "&:hover": { boxShadow: "0px 0px 8px #9e9e9e" } },
   contentTitleStyle: { fontFamily: "'Open Sans', sans-serif" },
   contentBodyStyle: {
     letterSpacing: ".00625em",

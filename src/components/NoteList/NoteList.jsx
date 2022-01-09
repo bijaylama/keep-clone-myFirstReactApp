@@ -5,7 +5,20 @@ import Container from "@mui/material/Container";
 
 import { CardNote } from "../common/CardNote/CardNote";
 
-export default function NoteList({ noteArray, handleDelete }) {
+export default function NoteList({
+  noteArray,
+  handleDelete,
+  editNote,
+  setEditNote,
+  setOpenPop,
+  setInput,
+}) {
+  const handleEdit = (id) => {
+    const findNote = noteArray.find((note) => note.id === id);
+    setEditNote(findNote);
+    setInput(findNote);
+    setOpenPop(true);
+  };
   return (
     <Box>
       <Container maxWidth="lg">
@@ -13,10 +26,9 @@ export default function NoteList({ noteArray, handleDelete }) {
           {noteArray.map((note, index) => (
             <CardNote
               key={index}
-              id={index}
-              title={note.title}
-              content={note.content}
-              handleDelete={handleDelete}
+              note={note}
+              handleDelete={() => handleDelete(note.id)}
+              handleEdit={() => handleEdit(note.id)}
             />
           ))}
         </Masonry>

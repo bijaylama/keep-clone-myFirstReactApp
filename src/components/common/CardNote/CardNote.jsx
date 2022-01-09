@@ -11,16 +11,15 @@ import {
 } from "@mui/material";
 import { myStyle } from "./myStyle";
 
-export const CardNote = ({ id, title, content, handleDelete }) => {
+export const CardNote = ({ note, handleDelete, handleEdit }) => {
   return (
     <Card variant="outlined" sx={myStyle.cardStyle}>
       <CardContent>
         <Typography variant="h5" component="div" sx={myStyle.contentTitleStyle}>
-          {id}
-          {title}
+          {note.title}
         </Typography>
         <Typography variant="body2" sx={myStyle.contentBodyStyle}>
-          {content}
+          {note.content}
         </Typography>
       </CardContent>
       <CardActions>
@@ -28,13 +27,13 @@ export const CardNote = ({ id, title, content, handleDelete }) => {
         <Grid item xs={3.5}></Grid>
         <Grid item xs={5} sx={{ display: "flex" }}>
           <Grid item xs={6}>
-            <IconButton color="yellow" aria-label="add to favorites">
+            <IconButton onClick={handleEdit} color="yellow" aria-label="edit">
               <EditIcon />
             </IconButton>
           </Grid>
           <Grid item xs={6}>
             <IconButton
-              onClick={() => handleDelete(id)}
+              onClick={handleDelete}
               color="yellow"
               aria-label="delete"
             >
