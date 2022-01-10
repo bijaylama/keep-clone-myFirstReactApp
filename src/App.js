@@ -135,9 +135,7 @@ function App() {
         handleExpand={handleExpand}
         expand={expand}
         setExpand={setExpand}
-        input={input}
         setInput={setInput}
-        // onAdd={addNote}
         handleButton={handleButton}
         value={input}
       />

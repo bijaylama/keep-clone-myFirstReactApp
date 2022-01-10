@@ -23,9 +23,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 
 export default function FormNote({
   expand,
-  input,
   setInput,
-  onAdd,
   handleButton,
   handleExpand,
   handleChange,
@@ -38,7 +36,18 @@ export default function FormNote({
       <Box sx={{ p: 10 }}>
         <Grid container>
           <Grid item md={3}></Grid>
-          <Grid onDoubleClick={() => setExpand(false)} item md={6}>
+          <Grid
+            onDoubleClick={() => {
+              setExpand(false);
+              setInput({
+                id: "",
+                title: "",
+                content: "",
+              });
+            }}
+            item
+            md={6}
+          >
             <Paper elevation={5} sx={formStyle.paperWrapeStyle}>
               {/* 
               
