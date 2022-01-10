@@ -22,6 +22,7 @@ export default function FormDialog({
   handleChange,
   title,
   content,
+  setInput,
 }) {
   // const handleButton = () => {
   //   console.log(editNote.title);
@@ -30,7 +31,14 @@ export default function FormDialog({
   return (
     <Dialog
       open={open}
-      onBackdropClick={() => setOpenPop(false)}
+      onBackdropClick={() => {
+        setOpenPop(false);
+        setInput({
+          id: "",
+          title: "",
+          content: "",
+        });
+      }}
       // onClose={handleClose}
     >
       {/* CUSTOM INPUT FORM IMPORT */}

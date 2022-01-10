@@ -10,10 +10,21 @@ import {
   Typography,
 } from "@mui/material";
 import { myStyle } from "./myStyle";
+import { useState } from "react";
+import { Box } from "@mui/system";
 
 export const CardNote = ({ note, handleDelete, handleEdit }) => {
+  /// state for mouse event
+  const [mouseOver, setMouseOver] = useState(false);
+
   return (
-    <Card variant="outlined" sx={myStyle.cardStyle}>
+    <Card
+      onMouseEn
+      onPointerEnter={() => setMouseOver(true)}
+      onPointerLeave={() => setMouseOver(false)}
+      variant="outlined"
+      sx={myStyle.cardStyle}
+    >
       <CardContent>
         <Typography variant="h5" component="div" sx={myStyle.contentTitleStyle}>
           {note.title}
@@ -26,17 +37,33 @@ export const CardNote = ({ note, handleDelete, handleEdit }) => {
         <Grid item xs={3.5}></Grid>
         <Grid item xs={3.5}></Grid>
         <Grid item xs={5} sx={{ display: "flex" }}>
-          <Grid item xs={6}>
-            <IconButton onClick={handleEdit} color="yellow" aria-label="edit">
+          {/* 
+          
+          card edit delete button 
+          
+          */}
+
+          <Grid
+            sx={{
+              visibility: "hidden",
+              ...(mouseOver === true ? myStyle.iconShow : myStyle.icon),
+            }}
+            item
+            xs={6}
+          >
+            <IconButton onClick={handleEdit} color="green" aria-label="edit">
               <EditIcon />
             </IconButton>
           </Grid>
-          <Grid item xs={6}>
-            <IconButton
-              onClick={handleDelete}
-              color="yellow"
-              aria-label="delete"
-            >
+          <Grid
+            sx={{
+              visibility: "hidden",
+              ...(mouseOver === true ? myStyle.iconShow : myStyle.icon),
+            }}
+            item
+            xs={6}
+          >
+            <IconButton onClick={handleDelete} color="red" aria-label="delete">
               <DeleteForeverIcon />
             </IconButton>
           </Grid>

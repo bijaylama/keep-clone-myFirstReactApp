@@ -10,6 +10,7 @@ const InputField = ({
   name,
   defaultValue,
   value,
+  placeholder,
 }) => {
   return (
     <Input
@@ -18,7 +19,7 @@ const InputField = ({
       multiline={multiline}
       maxRows={maxRows}
       sx={sx}
-      placeholder={title}
+      placeholder={placeholder}
       onChange={onChange}
       onClick={onClick}
       fullWidth

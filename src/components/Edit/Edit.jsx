@@ -35,6 +35,7 @@ export const Edit = ({
       content={editNote.content}
       handleButton={handleButton}
       handleChange={handleChange}
+      setInput={setInput}
     />
   );
 };

@@ -15,7 +15,7 @@ function App() {
   //
   //
   //
-  //NOTE LIST ARRAY LIST
+  // 1 NOTE LIST ARRAY LIST
   const [notes, setNotes] = useState([
     {
       id: nanoid(),
@@ -38,22 +38,21 @@ function App() {
       content: "This is my new note!",
     },
   ]);
-  //EDIT STATE
+  // 2 EDIT STATE
   const [editNote, setEditNote] = useState({
     title: "",
     content: "",
   });
-  //POP UP STATE
+  // 3 POP UP STATE
   const [openPop, setOpenPop] = useState(false);
-  //INPUT STATE
+  // 4 INPUT STATE
   const [input, setInput] = useState({
     id: "",
     title: "",
     content: "",
   });
-  // FORM EXPAND STATE
+  // 5 FORM EXPAND STATE
   const [expand, setExpand] = useState(false);
-
   //
   //
   //
@@ -89,7 +88,9 @@ function App() {
   };
   //SUBMIT BUTTON EVENT
   const handleButton = (id) => {
-    if (input.title === "" && input.content === "") {
+    //EMPTY AND SPACE CONDITION
+    if (input.title.trim() === "" && input.content.trim() === "") {
+      setInput({ id: "", title: "", content: "" });
       setOpenPop(false);
     } else if (openPop) {
       setNotes(
@@ -100,7 +101,13 @@ function App() {
           return val;
         })
       );
+      setInput({
+        id: "",
+        title: "",
+        content: "",
+      });
       setOpenPop(false);
+      // ADDING DATA FROM FORM
     } else if (input.title !== "" || input.content !== "") {
       addNote(input);
       setExpand(false);
@@ -132,6 +139,7 @@ function App() {
         setInput={setInput}
         // onAdd={addNote}
         handleButton={handleButton}
+        value={input}
       />
 
       <NoteList
@@ -154,6 +162,7 @@ function App() {
           editNote={editNote}
           handleChange={handleChange}
           handleButton={handleButton}
+          setInput={setInput}
         />
       )}
 

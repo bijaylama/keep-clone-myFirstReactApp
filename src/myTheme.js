@@ -8,6 +8,12 @@ export const myTheme = createTheme({
       // contrastText: will be calculated to contrast with palette.primary.main
       contrastText: "#fff",
     },
+    red: {
+      main: "#f50057",
+    },
+    green: {
+      main: "#00c853",
+    },
   },
   //   typography: {
   //     color: "#fff",
