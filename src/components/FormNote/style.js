@@ -10,6 +10,9 @@ export const formStyle = {
   paper: {
     display: "flex",
     flexDirection: "column",
+    border: "1px solid rgba(0, 0, 0, 0.12)",
+    borderRadius: "4px",
+    "&:hover": { boxShadow: "0px 0px 5px #9e9e9e", transition: "0.6s" },
   },
   input: {
     p: 2,

@@ -3,5 +3,6 @@ export const style = {
     fontSize: "1.125rem",
     fontFamily: "'Open Sans',sans-serif",
     fontWeight: 200,
+    color: "#424242",
   },
 };

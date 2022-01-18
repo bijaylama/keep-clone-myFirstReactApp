@@ -20,10 +20,6 @@ export default function FormDialog({
   content,
   setInput,
 }) {
-  // const handleButton = () => {
-  //   console.log(editNote.title);
-  //   console.log(editNote.content);
-  // };
   return (
     <Dialog
       open={openPop}
@@ -35,7 +31,6 @@ export default function FormDialog({
           content: "",
         });
       }}
-      // onClose={handleClose}
     >
       {/* CUSTOM INPUT FORM IMPORT */}
       <DialogTitle>
