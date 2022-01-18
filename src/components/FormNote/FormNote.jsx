@@ -41,7 +41,7 @@ export default function FormNote({
         }}
         sx={formStyle.box}
       >
-        <Box elevation={5} sx={formStyle.paper}>
+        <Paper sx={formStyle.paper}>
           {/* 
               
               INPUT TITLE FORM 
@@ -111,7 +111,7 @@ export default function FormNote({
               </>
             ) : null}
           </Box>
-        </Box>
+        </Paper>
       </Box>
     </>
   );

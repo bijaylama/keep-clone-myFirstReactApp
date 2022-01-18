@@ -105,6 +105,7 @@ function App() {
   const handleDelete = (id) => {
     const newNote = notes.filter((val) => val.id !== id);
     setNotes(newNote);
+    setSearch(newNote);
   };
 
   // handle search
