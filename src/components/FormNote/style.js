@@ -1,23 +1,31 @@
 export const formStyle = {
-  inputContentStyle: {
+  box: {
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+    alignItems: "center",
+    my: 10,
+    // border: "1px solid black",
+  },
+  paper: {
+    display: "flex",
+    flexDirection: "column",
+  },
+  input: {
     p: 2,
     color: "#5f6368",
-    fontWeight: "400",
     letterSpacing: ".04272727em",
     fontFamily: "Roboto,Arial,sans-serif",
     lineHeight: "1rem",
+    // width: "600px",
+  },
+  inputContentStyle: {
+    fontWeight: "400",
   },
   inputTitleStyle: {
-    p: 2,
-    color: "#5f6368",
     fontWeight: "600",
-    letterSpacing: ".04272727em",
-    fontFamily: "Roboto,Arial,sans-serif",
-    lineHeight: "1rem",
   },
-  paperWrapeStyle: {
-    position: "relative",
-  },
+
   iconButtonStyle: {
     display: "flex",
     justifyContent: "end",

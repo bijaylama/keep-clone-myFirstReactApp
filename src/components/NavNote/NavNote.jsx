@@ -12,7 +12,7 @@ import Brightness4Icon from "@mui/icons-material/Brightness4";
 import SearchBar from "../common/SearchBar/SearchBar";
 import { navStyle } from "./style";
 
-export default function () {
+export default function ({ handleSearch }) {
   return (
     <Box sx={navStyle.container}>
       <AppBar color="yellow" position="static">
@@ -33,22 +33,12 @@ export default function () {
           </Typography>
           <Box sx={{ flexGrow: 1, backgroundColor: "red" }} />
           {/* SEARCH COMPONENT */}
-          <SearchBar sx={{ flexGrow: 3 }} />
-          <Box sx={{ flexGrow: 1 }} />
-          <Box sx={{ display: { xs: "none", md: "flex" } }}>
-            <IconButton size="large" color="inherit">
-              <Brightness4Icon />
-            </IconButton>
-
-            <IconButton
-              size="large"
-              edge="end"
-              aria-label="account of current user"
-              color="inherit"
-            >
-              <AccountCircle />
-            </IconButton>
-          </Box>
+          <SearchBar
+            onChange={(e) => handleSearch(e.target.value)}
+            sx={{ flexGrow: 4 }}
+          />
+          <Box sx={{ flexGrow: 1.5 }} />
+          <Box sx={{ display: { xs: "none", md: "flex" } }}></Box>
         </Toolbar>
       </AppBar>
     </Box>

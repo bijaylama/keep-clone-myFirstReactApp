@@ -3,7 +3,6 @@ import React, { useEffect } from "react";
 import { useState } from "react";
 
 export const Edit = ({
-  input,
   setInput,
   editNote,
   openPop,
@@ -26,7 +25,7 @@ export const Edit = ({
     <ModelEdit
       id={editNote.id}
       name="title"
-      open={openPop}
+      openPop={openPop}
       // onChange={(e) => handleChange(e.target)}
       editNote={editNote}
       openPop={openPop}

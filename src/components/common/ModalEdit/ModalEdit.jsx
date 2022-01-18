@@ -12,12 +12,8 @@ import SendIcon from "@mui/icons-material/Send";
 
 export default function FormDialog({
   id,
-  editNote,
-  openPop,
   setOpenPop,
-  open,
-  onChange,
-  name,
+  openPop,
   handleButton,
   handleChange,
   title,
@@ -30,7 +26,7 @@ export default function FormDialog({
   // };
   return (
     <Dialog
-      open={open}
+      open={openPop}
       onBackdropClick={() => {
         setOpenPop(false);
         setInput({

@@ -11,7 +11,7 @@ import {
 } from "@mui/material";
 import { myStyle } from "./myStyle";
 import { useState } from "react";
-import { Box } from "@mui/system";
+import Tooltip from "@mui/material/Tooltip";
 
 export const CardNote = ({ note, handleDelete, handleEdit }) => {
   /// state for mouse event
@@ -19,7 +19,6 @@ export const CardNote = ({ note, handleDelete, handleEdit }) => {
 
   return (
     <Card
-      onMouseEn
       onPointerEnter={() => setMouseOver(true)}
       onPointerLeave={() => setMouseOver(false)}
       variant="outlined"
@@ -51,9 +50,11 @@ export const CardNote = ({ note, handleDelete, handleEdit }) => {
             item
             xs={6}
           >
-            <IconButton onClick={handleEdit} color="green" aria-label="edit">
-              <EditIcon />
-            </IconButton>
+            <Tooltip title="Edit">
+              <IconButton onClick={handleEdit} color="green" aria-label="edit">
+                <EditIcon />
+              </IconButton>
+            </Tooltip>
           </Grid>
           <Grid
             sx={{
@@ -63,9 +64,15 @@ export const CardNote = ({ note, handleDelete, handleEdit }) => {
             item
             xs={6}
           >
-            <IconButton onClick={handleDelete} color="red" aria-label="delete">
-              <DeleteForeverIcon />
-            </IconButton>
+            <Tooltip title="Delete">
+              <IconButton
+                onClick={handleDelete}
+                color="red"
+                aria-label="delete"
+              >
+                <DeleteForeverIcon />
+              </IconButton>
+            </Tooltip>
           </Grid>
         </Grid>
       </CardActions>
